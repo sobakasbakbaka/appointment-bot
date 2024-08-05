@@ -1,3 +1,4 @@
+import { PrismaService } from '@/prisma/prisma.service';
 import { Update, Start, Ctx, On, Message } from 'nestjs-telegraf';
 import { Telegraf, Scenes } from 'telegraf';
 

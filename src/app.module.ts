@@ -5,9 +5,10 @@ import { TelegramService } from './telegram/telegram.service';
 import { PrismaService } from './prisma/prisma.service';
 import { AppointmentService } from './appointment/appointment.service';
 import { AppointmentModule } from './appointment/appointment.module';
+import { ButtonsService } from './buttons/buttons.service';
 
 @Module({
   imports: [TelegramModule, ConfigModule.forRoot({ isGlobal: true }), AppointmentModule],
-  providers: [TelegramService, PrismaService, AppointmentService],
+  providers: [TelegramService, PrismaService, AppointmentService, ButtonsService],
 })
 export class AppModule {}

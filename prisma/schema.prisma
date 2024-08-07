@@ -10,9 +10,11 @@ datasource db {
 model Appointment {
   id Int @default(autoincrement()) @id
   name String
+  phone String
   time DateTime
   date DateTime
   coast Int
-  description String
-  comment String
+  service String
+  description String?
+  comment String?
 }

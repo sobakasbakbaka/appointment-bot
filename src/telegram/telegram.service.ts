@@ -6,13 +6,17 @@ type Context = Scenes.SceneContext;
 
 @Update()
 export class TelegramService extends Telegraf<Context> {
+  // constructor(private prisma: PrismaService) {}
+
   @Start()
   onStart(@Ctx() ctx: Context) {
     ctx.replyWithHTML(`<b>Привет, ${ctx.from.username}!</b>`);
   }
 
-  @On('text')
-  onMessage(@Message('text') message: string, @Ctx() ctx: Context) {
-    ctx.replyWithHTML(`<i>${message}</i>`);
-  }
+  // @On('text')
+  // onMessage(@Message('text') message: string, @Ctx() ctx: Context) {
+  //   // this.prisma.appointment.create();
+
+  //   ctx.replyWithHTML(`<i>${message}</i>`);
+  // }
 }

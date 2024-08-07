@@ -1,12 +1,17 @@
+import { WELOCME_BUTTON } from '@/shared/constants';
 import { Injectable } from '@nestjs/common';
 import { Markup } from 'telegraf';
 
 @Injectable()
 export class ButtonsService {
   createWelcomeButtons() {
-    return Markup.keyboard([
-      Markup.button.callback('Create appointment', 'callback_create'),
-      Markup.button.callback('Create TEST appointment', 'callback_create_test'),
-    ]);
+    return Markup.keyboard(
+      Object.keys(WELOCME_BUTTON).map((key) =>
+        Markup.button.callback(
+          WELOCME_BUTTON[key].label,
+          WELOCME_BUTTON[key].value,
+        ),
+      ),
+    );
   }
 }

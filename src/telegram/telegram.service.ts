@@ -2,13 +2,13 @@ import {
   Update,
   Start,
   Ctx,
-  On,
+  // On,
   Message,
   InjectBot,
   Hears,
 } from 'nestjs-telegraf';
 import { Telegraf, Scenes } from 'telegraf';
-import { TEMP_USER } from '@/shared/constants';
+import { TEMP_USER, WELOCME_BUTTON } from '@/shared/constants';
 import { AppointmentService } from '@/appointment/appointment.service';
 import { ButtonsService } from '@/buttons/buttons.service';
 
@@ -30,17 +30,9 @@ export class TelegramService {
     );
   }
 
-  @Hears('Create TEST appointment')
-  async onTestMessage(@Message('text') message: string, @Ctx() ctx: Context) {
+  @Hears(WELOCME_BUTTON.CREATE_TEST_APPOINTMENT.label)
+  async onTestMessage(@Ctx() ctx: Context) {
     await this.appointmentService.createAppointment(TEMP_USER);
     ctx.replyWithHTML('<b>Тестовый клиент создан</b>');
   }
-
-  // @On('text')
-  // async onTestMessage(@Message('text') message: string, @Ctx() ctx: Context) {
-  //   if (message === 'testing client') {
-  //     await this.appointmentService.createAppointment(TEMP_USER);
-  //     ctx.replyWithHTML('<b>Тестовый клиент создан</b>');
-  //   }
-  // }
 }

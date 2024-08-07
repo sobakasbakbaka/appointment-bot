@@ -1,12 +1,15 @@
 import { PrismaService } from '@/prisma/prisma.service';
-import { Update, Start, Ctx, On, Message } from 'nestjs-telegraf';
+import { Update, Start, Ctx, On, Message, InjectBot } from 'nestjs-telegraf';
 import { Telegraf, Scenes } from 'telegraf';
 
 type Context = Scenes.SceneContext;
 
 @Update()
-export class TelegramService extends Telegraf<Context> {
-  // constructor(private prisma: PrismaService) {}
+export class TelegramService {
+  constructor(
+    @InjectBot() private readonly bot: Telegraf<Context>,
+    private readonly prisma: PrismaService,
+  ) {}
 
   @Start()
   onStart(@Ctx() ctx: Context) {

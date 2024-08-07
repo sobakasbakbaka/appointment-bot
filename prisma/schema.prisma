@@ -9,6 +9,7 @@ datasource db {
 
 model Appointment {
   id Int @default(autoincrement()) @id
+  completed Boolean @default(false)
   name String
   phone String
   time DateTime

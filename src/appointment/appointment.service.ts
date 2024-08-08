@@ -11,11 +11,11 @@ export class AppointmentService {
   }
 
   async getAllAppointments(): Promise<Appointment[]> {
-    return await this.prisma.appointment.findMany();
+    return this.prisma.appointment.findMany();
   }
 
   async getUnCompletedAppointments(): Promise<Appointment[]> {
-    return await this.prisma.appointment.findMany({
+    return this.prisma.appointment.findMany({
       where: {
         completed: false,
       },

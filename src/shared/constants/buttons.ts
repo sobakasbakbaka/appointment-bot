@@ -1,4 +1,4 @@
-export const WELOCME_BUTTON = {
+export const WELCOME_BUTTON = {
   CREATE_APPOINTMENT: {
     label: 'Create Appointment',
     value: 'create_appointment',

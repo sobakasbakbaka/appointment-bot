@@ -1,4 +1,4 @@
-import { WELOCME_BUTTON } from '@/shared/constants';
+import { WELCOME_BUTTON } from '@/shared/constants';
 import { Injectable } from '@nestjs/common';
 import { Markup } from 'telegraf';
 
@@ -6,10 +6,10 @@ import { Markup } from 'telegraf';
 export class ButtonsService {
   createWelcomeButtons() {
     return Markup.keyboard(
-      Object.keys(WELOCME_BUTTON).map((key) =>
+      Object.keys(WELCOME_BUTTON).map((key) =>
         Markup.button.callback(
-          WELOCME_BUTTON[key].label,
-          WELOCME_BUTTON[key].value,
+          WELCOME_BUTTON[key].label,
+          WELCOME_BUTTON[key].value,
         ),
       ),
     );

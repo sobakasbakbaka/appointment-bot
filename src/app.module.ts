@@ -8,7 +8,16 @@ import { AppointmentModule } from './appointment/appointment.module';
 import { ButtonsService } from './buttons/buttons.service';
 
 @Module({
-  imports: [TelegramModule, ConfigModule.forRoot({ isGlobal: true }), AppointmentModule],
-  providers: [TelegramService, PrismaService, AppointmentService, ButtonsService],
+  imports: [
+    TelegramModule,
+    ConfigModule.forRoot({ isGlobal: true }),
+    AppointmentModule,
+  ],
+  providers: [
+    TelegramService,
+    PrismaService,
+    AppointmentService,
+    ButtonsService,
+  ],
 })
 export class AppModule {}

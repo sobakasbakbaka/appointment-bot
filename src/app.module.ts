@@ -6,12 +6,15 @@ import { PrismaService } from './prisma/prisma.service';
 import { AppointmentService } from './appointment/appointment.service';
 import { AppointmentModule } from './appointment/appointment.module';
 import { ButtonsService } from './buttons/buttons.service';
+import { AdminController } from './admin/admin.controller';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [
     TelegramModule,
     ConfigModule.forRoot({ isGlobal: true }),
     AppointmentModule,
+    AdminModule,
   ],
   providers: [
     TelegramService,
@@ -19,5 +22,6 @@ import { ButtonsService } from './buttons/buttons.service';
     AppointmentService,
     ButtonsService,
   ],
+  controllers: [AdminController],
 })
 export class AppModule {}

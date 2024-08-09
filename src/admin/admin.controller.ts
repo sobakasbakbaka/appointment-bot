@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Delete, Get, Param } from '@nestjs/common';
 import { AppointmentService } from '@/appointment/appointment.service';
 
 @Controller('admin')
@@ -10,8 +10,13 @@ export class AdminController {
     return this.appointmentService.getAllAppointments();
   }
 
-  @Get('/uncompleted')
+  @Get('uncompleted')
   getAllUncompleted() {
     return this.appointmentService.getUnCompletedAppointments();
+  }
+
+  @Delete('appointments/:id')
+  deleteAppointment(@Param('id') id: number) {
+    return this.appointmentService.deleteAppointment(id);
   }
 }

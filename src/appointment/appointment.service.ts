@@ -21,4 +21,10 @@ export class AppointmentService {
       },
     });
   }
+
+  async deleteAppointment(id: number): Promise<void> {
+    await this.prisma.appointment.delete({
+      where: { id: +id },
+    });
+  }
 }
